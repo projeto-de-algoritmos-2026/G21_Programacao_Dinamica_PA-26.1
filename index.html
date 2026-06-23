@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal LIS Autocomplete</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header class="terminal-header">
+            <div class="mac-buttons">
+                <span class="close"></span>
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
+            <div class="title">Terminal - LIS Autocomplete</div>
+        </header>
+        
+        <main class="terminal-body">
+            <div class="output-area" id="output-area">
+                <p>Bem-vindo ao Motor LIS (Longest Increasing Subsequence).</p>
+                <p>Digite sua sequência abaixo. Analisaremos em tempo real.</p>
+            </div>
+            <div class="input-line">
+                <span class="prompt">miguel@lis:~$</span>
+                <input type="text" id="command-input" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+        </main>
+        
+        <footer class="suggestions-panel" id="suggestions-panel">
+            <div class="panel-title">Sugestões / Correções (LIS)</div>
+            <div id="correction-output" class="correction-content">
+                <span class="placeholder">Aguardando entrada de dados...</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
