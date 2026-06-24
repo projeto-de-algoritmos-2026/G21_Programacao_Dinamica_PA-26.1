@@ -36,6 +36,7 @@
 
         for (let i = 1; i < normalizedValues.length; i += 1) {
             let bestLength = 1;
+            let bestPredecessor = -1;
 
             for (let j = 0; j < i; j += 1) {
                 const currentValue = normalizedValues[i];
@@ -43,10 +44,12 @@
 
                 if (previousValue < currentValue && state.lengths[j] + 1 > bestLength) {
                     bestLength = state.lengths[j] + 1;
+                    bestPredecessor = j;
                 }
             }
 
             state.lengths[i] = bestLength;
+            state.predecessors[i] = bestPredecessor;
 
             if (bestLength > state.lengths[state.bestIndex]) {
                 state.bestIndex = i;
@@ -55,8 +58,25 @@
 
         return {
             ...state,
-            sequence: []
+            sequence: findSubsequence(state)
         };
+    }
+
+    /**
+     * Função iterativa para rastrear e reconstruir o array com a sequência exata
+     * de elementos que estão na ordem correta usando o vetor de predecessores.
+     */
+    function findSubsequence(state) {
+        const sequence = [];
+        let currentIndex = state.bestIndex;
+
+        while (currentIndex !== -1) {
+            // Adiciona no início (unshift) para reconstruir do fim para o começo
+            sequence.unshift(state.values[currentIndex]);
+            currentIndex = state.predecessors[currentIndex];
+        }
+
+        return sequence;
     }
 
     function computeLisFromTokens(tokens, mapper) {
@@ -78,7 +98,8 @@
     const lisApi = {
         initializeLisState,
         computeLis,
-        computeLisFromTokens
+        computeLisFromTokens,
+        findSubsequence
     };
 
     globalScope.LIS = lisApi;
