@@ -121,3 +121,44 @@ body {
     color: #555;
     font-style: italic;
 }
+
+.input-preview {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #2f2f2f;
+    border-radius: 6px;
+    background-color: #121212;
+    min-height: 48px;
+}
+
+.token {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 2px 0;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.token-correct {
+    background-color: rgba(39, 201, 63, 0.2);
+    color: #57ff7a;
+}
+
+.token-incorrect {
+    background-color: rgba(255, 95, 86, 0.2);
+    color: #ff7b72;
+    text-decoration: underline;
+}
+
+.suggestion-label {
+    color: #888;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.suggestion-text {
+    color: #00ff00;
+    font-weight: bold;
+}
