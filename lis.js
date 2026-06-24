@@ -27,6 +27,32 @@
         const normalizedValues = Array.isArray(values) ? values.slice() : [];
         const state = initializeLisState(normalizedValues);
 
+        if (normalizedValues.length <= 1) {
+            return {
+                ...state,
+                sequence: []
+            };
+        }
+
+        for (let i = 1; i < normalizedValues.length; i += 1) {
+            let bestLength = 1;
+
+            for (let j = 0; j < i; j += 1) {
+                const currentValue = normalizedValues[i];
+                const previousValue = normalizedValues[j];
+
+                if (previousValue < currentValue && state.lengths[j] + 1 > bestLength) {
+                    bestLength = state.lengths[j] + 1;
+                }
+            }
+
+            state.lengths[i] = bestLength;
+
+            if (bestLength > state.lengths[state.bestIndex]) {
+                state.bestIndex = i;
+            }
+        }
+
         return {
             ...state,
             sequence: []
