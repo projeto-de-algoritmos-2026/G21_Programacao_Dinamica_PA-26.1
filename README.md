@@ -27,17 +27,17 @@ O núcleo do projeto é a implementação do algoritmo de Programação Dinâmic
 ### 1. Teste de Validação (Caminho Feliz)
 *Neste teste, o usuário digita os comandos na ordem exata definida pelo gabarito. O motor LIS processa a entrada e valida toda a sequência em verde, enquanto a telemetria (canto superior direito) indica o tempo de processamento da PD.*
 
-![Teste Caminho Feliz](assets/image.png)
+![Teste Caminho Feliz](assets/caminho_feliz.png)
 
 ### 2. Teste de Identificação (Quebra de Ordem)
 *Aqui, a palavra "install" é digitada fora da sequência lógica. A Programação Dinâmica a identifica como uma quebra na Maior Subsequência Crescente (destacada em vermelho) e o painel de sugestões reconstrói o comando de forma limpa.*
 
-![Teste Palavra Fora de Ordem](assets/image%20copy.png)
+![Teste Palavra Fora de Ordem](assets/quebra_ordem.png)
 
 ### 3. Teste de Filtragem (Palavras Inexistentes/Intrusas)
 *O usuário digita comandos não catalogados ("start", "abacate") no meio do pipeline. O corretor LIS filtra o ruído (em vermelho) e preserva apenas o que mantém a coerência estrutural da LIS.*
 
-![Teste Palavras Inexistentes](assets/image%20copy%202.png)
+![Teste Palavras Inexistentes](assets/intrusas.png)
 
 ## Instalação 
 
