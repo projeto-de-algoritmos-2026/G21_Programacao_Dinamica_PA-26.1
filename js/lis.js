@@ -3,23 +3,13 @@
 
     function initializeLisState(values) {
         if (!Array.isArray(values)) {
-            return {
-                values: [],
-                lengths: [],
-                predecessors: [],
-                bestIndex: -1
-            };
+            return { values: [], lengths: [], predecessors: [], bestIndex: -1 };
         }
-
-        const lengths = new Array(values.length).fill(1);
-        const predecessors = new Array(values.length).fill(-1);
-        const bestIndex = values.length > 0 ? 0 : -1;
-
         return {
             values: values.slice(),
-            lengths,
-            predecessors,
-            bestIndex
+            lengths: new Array(values.length).fill(1),
+            predecessors: new Array(values.length).fill(-1),
+            bestIndex: values.length > 0 ? 0 : -1
         };
     }
 
@@ -28,10 +18,7 @@
         const state = initializeLisState(normalizedValues);
 
         if (normalizedValues.length <= 1) {
-            return {
-                ...state,
-                sequence: []
-            };
+            return { ...state, sequence: [] };
         }
 
         for (let i = 1; i < normalizedValues.length; i += 1) {
@@ -56,22 +43,14 @@
             }
         }
 
-        return {
-            ...state,
-            sequence: findSubsequence(state)
-        };
+        return { ...state, sequence: findSubsequence(state) };
     }
 
-    /**
-     * Função iterativa para rastrear e reconstruir o array com a sequência exata
-     * de elementos que estão na ordem correta usando o vetor de predecessores.
-     */
     function findSubsequence(state) {
         const sequence = [];
         let currentIndex = state.bestIndex;
 
         while (currentIndex !== -1) {
-            // Adiciona no início (unshift) para reconstruir do fim para o começo
             sequence.unshift(state.values[currentIndex]);
             currentIndex = state.predecessors[currentIndex];
         }
@@ -80,28 +59,17 @@
     }
 
     function computeLisFromTokens(tokens, mapper) {
-        if (!Array.isArray(tokens)) {
-            return computeLis([]);
-        }
-
+        if (!Array.isArray(tokens)) return computeLis([]);
+        
         const mappedValues = tokens.map((token) => {
-            if (typeof mapper === 'function') {
-                return mapper(token);
-            }
-
+            if (typeof mapper === 'function') return mapper(token);
             return token;
         });
 
         return computeLis(mappedValues);
     }
 
-    const lisApi = {
-        initializeLisState,
-        computeLis,
-        computeLisFromTokens,
-        findSubsequence
-    };
-
+    const lisApi = { initializeLisState, computeLis, computeLisFromTokens, findSubsequence };
     globalScope.LIS = lisApi;
 
     if (typeof module !== 'undefined' && module.exports) {

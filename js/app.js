@@ -90,7 +90,15 @@
     function handleInput(event) {
         const text = event.target.value;
         const tokens = tokenize(text);
+        
+        const startTime = performance.now();
         renderInput(tokens);
+        const endTime = performance.now();
+        
+        const telemetryElement = document.getElementById('telemetry');
+        if (telemetryElement) {
+            telemetryElement.textContent = `${(endTime - startTime).toFixed(2)}ms`;
+        }
     }
 
     function initializeApp() {
