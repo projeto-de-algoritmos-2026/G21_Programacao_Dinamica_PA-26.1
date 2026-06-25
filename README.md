@@ -1,4 +1,4 @@
-# Terminal LIS Autocomplete (Programação Dinâmica)
+# 🖥️ Terminal LIS Autocomplete (Programação Dinâmica)
 
 **Grupo:** G21_Programacao_Dinamica_PA-26.1  
 **Conteúdo da Disciplina:** Programação Dinâmica
@@ -22,22 +22,22 @@ O núcleo do projeto é a implementação do algoritmo de Programação Dinâmic
 3. **Reconstrução da Solução:** Um vetor de predecessores (pre[j]) é utilizado no laço principal para permitir o rastreamento e a reconstrução exata dos elementos que estão na ordem correta.
 4. **Correção Automática:** As palavras que ficaram fora da LIS são isoladas. A interface então sugere a remoção ou o reposicionamento desses itens visando corrigir o comando do usuário.
 
-## Screenshots do Sistema
+## Screenshots do Sistema e Testes
 
-### 1. Interface do Terminal
-*(Visão geral do simulador de terminal aguardando a entrada de dados)*
+### 1. Teste de Validação (Caminho Feliz)
+*Neste teste, o usuário digita os comandos na ordem exata definida pelo gabarito. O motor LIS processa a entrada e valida toda a sequência em verde, enquanto a telemetria (canto superior direito) indica o tempo de processamento da PD.*
 
-![Interface do Terminal](assets/placeholder_terminal.png)  
+![Teste Caminho Feliz](assets/image.png)
 
-### 2. Autocomplete e Correções (LIS em Ação)
-*(Destaque visual da subsequência correta e painel de sugestão para as palavras fora de ordem)*
+### 2. Teste de Identificação (Quebra de Ordem)
+*Aqui, a palavra "install" é digitada fora da sequência lógica. A Programação Dinâmica a identifica como uma quebra na Maior Subsequência Crescente (destacada em vermelho) e o painel de sugestões reconstrói o comando de forma limpa.*
 
-![Sugestões e Autocomplete](assets/placeholder_autocomplete.png)
+![Teste Palavra Fora de Ordem](assets/image%20copy.png)
 
-### 3. Telemetria de Desempenho
-*(Monitoramento do tempo de execução em milissegundos da Programação Dinâmica)*
+### 3. Teste de Filtragem (Palavras Inexistentes/Intrusas)
+*O usuário digita comandos não catalogados ("start", "abacate") no meio do pipeline. O corretor LIS filtra o ruído (em vermelho) e preserva apenas o que mantém a coerência estrutural da LIS.*
 
-![Telemetria de Execução](assets/placeholder_telemetria.png)
+![Teste Palavras Inexistentes](assets/image%20copy%202.png)
 
 ## Instalação 
 
