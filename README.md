@@ -58,4 +58,4 @@ Portanto, não há necessidade de gerenciadores de dependências.
 
 ## Vídeo de apresentação
 
-[![Apresentação - Vídeo no Youtube](assets/placeholder_video.png)](LINK_DO_VIDEO_AQUI)
+[![Apresentação - Vídeo no Youtube](assets/placeholder_video.png)](https://youtu.be/Bl5rcCz7vso)
